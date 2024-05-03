@@ -1,0 +1,44 @@
+#!/usr/bin/env expect
+
+# DOCUMENTATIONS: https://www.mkssoftware.com/docs/man1/expect.1.asp
+#                 https://stackoverflow.com/questions/43198502/error-handling-in-tcl
+
+# TCL expect
+
+if { [llength $argv] != 2 } {
+    puts "expect interaction.exp <executable> <test-commands>"
+    exit 1
+}
+
+set executable [lindex $argv 0]
+set arg1 [lindex $argv 1]
+set TEST [string trim $arg1]
+set test_cmds [split $TEST "\n"]
+
+# add safety-last-element due to 'string trim' cmd
+#lappend test_cmds "safety-trailer" 
+
+spawn $executable
+
+set timeout 0
+set test_cmd_counter 0
+
+foreach test_cmd $test_cmds {
+
+    incr test_cmd_counter
+
+    expect "."
+    if { [ catch {send "$test_cmd\r"} caught_msg ] } {
+        puts "RUNTIME ERROR OCCURRED: your program terminated before command $test_cmd_counter: '$test_cmd'"
+        puts "-> $caught_msg"
+        break
+    }
+    sleep 0.1
+    expect *    
+}
+# expect * : clear input buffer
+
+
+
+
+#expect eof
