@@ -1,1 +1,11 @@
-The following will be a write up of the code for my own personal use
+The following will be a write-up of the code for my personal use, I will document the parts of the code I find most important to review before interviews etc
+To start off with, the code follows the structure of using an BST_Song binary search tree, BST_SongTile, and Heap to allow for operations to be preformed by title,ID, or duration and improving performance to O(log(n)) for Both BST object insertion, search and removal. Along with push, pop, and remove for the heap being O(log(n))  as required by our professor  
+
+1.Song Class
+The main idea of this class was to encapsulate all of the data and behavior for a single song with variables such as songID(int), songTitle(Str), songDuration(int), and removed(bool), where removed denotes that an song has been removed in BST_song.
+The most important operator is << which is overloaded to print song info
+
+2.BST_Song(Binary Search Tree for Song ID)
+One of two binary trees for dealing with Song objects, this specifically deals with songID. This deals with 
+
+
