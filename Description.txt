@@ -26,13 +26,16 @@ printInOrder(NodeBST *node) recursively prints the tree from left subtree -> nod
 
 3.BST_songTitle is an BST specialized for storing and managing multiple songs by their title and uses the song title for all operations, the insert,remove,search and printInOrder methods are all the same as BST_Song when accounting for this. There are some helper method from Jackson, denoted Jackson helper mess, which I have no idea what they do lol
 
-4.Heap(Max-Heap by Song Duration) which uses an vector-based max heap to store pointers to Songs. The song with the largest duration is at the top of the heap and duration is the song used to organize the heap. Making the key the song duration. 
+4.Heap(Max-Heap by Song Duration) which uses an vector-based max heap to store pointers to Songs. 
+The song with the largest duration is at the top of the heap and duration is the song used to organize the heap. Making the key the song duration. 
 
 Push(Song *value) appends the new song pointer to the end of the heap and then used PercolateUp function to bubble up the new song ptr to its correct location
 
-Pop() removes and returns the root then replaces the root with the last element in the heap and calls PercolateDown to push down this new root so the largest element is the root
+Pop() removes and returns the root then replaces the root with the last element in the heap. 
+Then it calls PercolateDown to push down this new root so the largest element is the root
 
-Remove(int index) is used to remove the song at the index in the vector, this is done by swapping the target element with the last and then popping it back. Then using PercolateDowm/PercolateUp depending on if the swapped value is larger or smaller
+Remove(int index) is used to remove the song at the index in the vector, this is done by swapping the target element with the last and then popping it back. 
+Then using PercolateDowm/PercolateUp depending on if the swapped value is larger or smaller
 
 Peek() returns but does not remove the top element 
 
