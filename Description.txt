@@ -7,12 +7,18 @@ The main idea of this class was to encapsulate all of the data and behavior for 
 The most important operator is << which is overloaded to print song info
 
 2.BST_Song(Binary Search Tree for Song ID),
-One of two binary trees for dealing with Song objects, this specifically deals with songID, using it for all operations, and as stated has O(log(n)) for most operation runtimes. It has an Song data ptr, root ptr and NodeBST ptr for the right and left node. 
-insert(Song &value) creates a new node song based on the parameter and the places it into the BST. It finds the desired location by comparing the new value to root and going to the left using left ptr if the new ID is smaller and going right if the new ID is larger 
+One of two binary trees for dealing with Song objects, 
+this specifically deals with songID, using it for all operations, and as stated has O(log(n)) for most operation runtimes. 
+It has an Song data ptr, root ptr and NodeBST ptr for the right and left node. 
+insert(Song &value) creates a new node song based on the parameter and the places it into the BST.
+It finds the desired location by comparing the new value to root and going to the left using left ptr if the new ID is smaller and going right if the new ID is larger 
 
-remove(song &value) searches for the node whose songID matches the value.getSongID(), does this removal with standard BST logic, in that if removing leaf node, remove directly, if removing node with one child, replace the node with its non-null child. If the removing node has two children, find the smallest node in the right subtree and replace it wit the current node 
+remove(song &value) searches for the node whose songID matches the value.getSongID(), does this removal with standard BST logic, in that if removing leaf node, remove directly, 
+if removing node with one child, replace the node with its non-null child. 
+If the removing node has two children, find the smallest node in the right subtree and replace it wit the current node 
 
-search(song &value) transverse the tree by comparing the SongID, if smaller go left, if larger go right, if it finds the node, return true
+search(song &value) transverse the tree by comparing the SongID, 
+if smaller go left, if larger go right, if it finds the node, return true
 
 printInOrder(NodeBST *node) recursively prints the tree from left subtree -> node -> right subtree, will skip songs marked as removed
 
