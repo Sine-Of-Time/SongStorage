@@ -35,4 +35,8 @@ PercolateUp(int index) repeatedly compares the item at index with its parent unt
 PercolateDown(int index) Compares the node at index with its children. Swaps it with the larger child if the child is bigger (max-heap property). Repeats until no child is larger or we reach the bottom.
 
 Interaction with Song Class:
+It can be noted that each song as an idx and songDuration, both being integers. When we call Push(&song) in the heap, songDuration, more specfically song.getSongDuration() is used to find the correction for the song in the heap. If songDuration changes, the Manager or BST_songTitle code calls percolateUp/percolateDown to reheapify, using the idx to find where to song should sit.
+
+Why did we decide on a heap? Mainly because of the favorite feature which immediately picks the top song. In addition, the heap yields pop/push of O(log(n)), and the heap allows direct removal at O(log(n)) time if the index is known, as in compliance with our project parameters
+
   
