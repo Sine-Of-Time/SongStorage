@@ -39,4 +39,20 @@ It can be noted that each song as an idx and songDuration, both being integers. 
 
 Why did we decide on a heap? Mainly because of the favorite feature which immediately picks the top song. In addition, the heap yields pop/push of O(log(n)), and the heap allows direct removal at O(log(n)) time if the index is known, as in compliance with our project parameters
 
-  
+5.Manager class, which was created mainly to facilitate the interactions between the two BST's(ID and title) and the max-heap(duration)
+More specifically, it act's as an interface through which external code or user cmd's interact with the underlying data structure. 
+Doing so in the following functions, which often favor the heap variable songTime but makes sure to reflect changes in the two BST when needed.
+
+addSong(Song &Value) operates by inserting new song into BST_song named songTree(indexed by songID), BST_songTitle named songTitleTree(indexed by songTitle) and max-heap named songTime(Indexed by songDuration). It passes the pointer instead of the actual object to save space and ensure changes in the data object are reflected in the entire tree. This yields avg big-o of O(logn)
+
+listen(string &title, int seconds) which runs at average time of O(log(n)) which since we are being passed the title, looks up Song via BST_songTitle to gain the most efficient look-up time, if found it increments songDuration like such (songDuration += seconds), then it call's percolate up on the 
+heap to ensure correct re-heapification as one song's duration has been increased. 
+
+
+
+favorite() which runs at O(log(n) average big O, 
+
+
+remove(string &title) which runs at O(log(n) avg runtime
+
+
