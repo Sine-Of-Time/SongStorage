@@ -63,5 +63,8 @@ pops the song with the longest song duration and marks it as favorited by callin
 remove(string &title) which runs at O(log(n)) avg runtime which finds the song via BST_songTitle since the pasted parameter is the 
 song title, if the soung is found to exist in BST_songTitle, the song ID is set to -1 and the removed variable is set to true. Then it calls the remove function in the heap using the index to find it and also physically removes the song node from the BST_songTitle, meaning the song only remains in the BST_Song.
 
-Overall, the key takeaway, is to meet improved runtime standards and other class project parameters, we implemented three data structures, all of which shared pointers to the same song. With BST_SongTitle used for listen() and remove() operations, heap used for favorite, and BST_Song used in most of the main operations. Often in a supporting function or to ensure record is kept of favorited songs. 
+Overall, the key takeaway, is to meet improved runtime standards and other class project parameters, 
+we implemented three data structures, all of which shared pointers to the same song. With BST_SongTitle used for listen()
+and remove() operations, heap used for favorite, and BST_Song used in most of the main operations. Often in a supporting
+function or to ensure record is kept of favorited songs. 
 
